@@ -1,6 +1,6 @@
 <?php
 
-namespace Liuggio\ExcelBundle\Tests\Controller;
+namespace Ephp\OfficeBundle\Tests\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Test\WebTestCase;
 

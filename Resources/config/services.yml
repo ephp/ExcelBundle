@@ -1,6 +1,9 @@
 parameters:
-    phpexcel.class:  Liuggio\ExcelBundle\Factory
+    phpexcel.class:  Ephp\OfficeBundle\FactoryExcel
+    phpword.class:  Ephp\OfficeBundle\FactoryWord
 
 services:
     phpexcel:
       class: %phpexcel.class%
+    phpword:
+      class: %phpword.class%

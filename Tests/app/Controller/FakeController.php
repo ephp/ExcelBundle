@@ -1,6 +1,6 @@
 <?php
 
-namespace  Liuggio\ExcelBundle\Controller;
+namespace  Ephp\OfficeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Response;

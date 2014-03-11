@@ -1,10 +1,14 @@
 {
-    "name": "liuggio/excelbundle",
+    "name": "ephp/office",
     "description": "This is a Symfony2 Bundle helps you to read and write Excel files (including pdf, xlsx, odt), thanks to the PHPExcel library",
     "authors": [
         {
             "name": "Giulio De Donato",
             "email": "liuggio@gmail.com"
+        },
+		{
+            "name": "Ephraim Pepe",
+            "email": "staff@jf-system.com"
         },
         {
             "name": "ExcelBundle Contributors",
@@ -18,7 +22,8 @@
     "require": {
         "php": ">=5.3.2",
         "symfony/framework-bundle": "~2.1",
-        "phpoffice/phpexcel": "1.7.9"
+        "ephpoffice/phpexcel": "master@dev",
+        "ephpoffice/phpword": "master@dev"
     },
     "require-dev": {
         "phpunit/PHPUnit": "3.7.*",
@@ -32,7 +37,7 @@
 
     "autoload": {
         "psr-0": {
-            "Liuggio\\ExcelBundle": ""
+            "Ephp\\OfficeBundle": ""
         }
     },
     "extra": {
@@ -40,7 +45,7 @@
             "dev-master": "2.0.x-dev"
         }
     },
-    "target-dir": "Liuggio/ExcelBundle",
+    "target-dir": "Ephp/OfficeBundle",
     "config": {
         "bin-dir": "bin"
     }

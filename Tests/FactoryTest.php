@@ -1,8 +1,8 @@
 <?php
 
-namespace Liuggio\ExcelBundle\Tests;
+namespace Ephp\OfficeBundle\Tests;
 
-use Liuggio\ExcelBundle\Factory;
+use Ephp\OfficeBundle\Factory;
 
 class FactoryTest extends \PHPUnit_Framework_TestCase
 {

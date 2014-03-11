@@ -1,21 +1,21 @@
 <?php
 
-namespace Liuggio\ExcelBundle;
+namespace Ephp\OfficeBundle;
 
 use Symfony\Component\HttpFoundation\StreamedResponse;
 
 /**
- * Factory for PHPExcel objects, StreamedResponse, and PHPExcel_Writer_IWriter.
+ * Factory for PHPWord objects, StreamedResponse, and PHPExcel_Writer_IWriter.
  *
- * @package Liuggio\ExcelBundle
+ * @package Ephp\OfficeBundle
  */
-class Factory
+class FactoryWord
 {
-    private $phpExcelIO;
+    private $phpWordIO;
 
-    public function __construct($phpExcelIO = '\PHPExcel_IOFactory')
+    public function __construct($phpWordIO = '\PHPWord_IOFactory')
     {
-        $this->phpExcelIO = $phpExcelIO;
+        $this->phpWordIO = $phpWordIO;
     }
     /**
      * Creates an empty PHPExcel Object if the filename is empty, otherwise loads the file into the object.
@@ -24,42 +24,42 @@ class Factory
      *
      * @return \PHPExcel
      */
-    public function createPHPExcelObject($filename =  null)
+    public function createPHPWordObject($filename =  null)
     {
         if (null == $filename) {
-            $phpExcelObject = new \PHPExcel();
+            $phpWordObject = new \PHPWord();
 
-            return $phpExcelObject;
+            return $phpWordObject;
         }
 
-        return call_user_func(array($this->phpExcelIO, 'load'), $filename);
+        return call_user_func(array($this->phpWordIO, 'load'), $filename);
     }
 
     /**
      * Create a writer given the PHPExcelObject and the type,
      *   the type coul be one of PHPExcel_IOFactory::$_autoResolveClasses
      *
-     * @param \PHPExcel $phpExcelObject
+     * @param \PHPWord $phpWordObject
      * @param string    $type
      *
      *
-     * @return \PHPExcel_Writer_IWriter
+     * @return \PHPWord_Writer_IWriter
      */
-    public function createWriter(\PHPExcel $phpExcelObject, $type = 'Excel5')
+    public function createWriter(\PHPWord $phpWordObject, $type = 'Word2007')
     {
-        return call_user_func(array($this->phpExcelIO, 'createWriter'), $phpExcelObject, $type);
+        return call_user_func(array($this->phpWordIO, 'createWriter'), $phpWordObject, $type);
     }
 
     /**
      * Stream the file as Response.
      *
-     * @param \PHPExcel_Writer_IWriter $writer
+     * @param \PHPWord_Writer_IWriter $writer
      * @param int                      $status
      * @param array                    $headers
      *
      * @return StreamedResponse
      */
-    public function createStreamedResponse(\PHPExcel_Writer_IWriter $writer, $status = 200, $headers = array())
+    public function createStreamedResponse(\PHPWord_Writer_IWriter $writer, $status = 200, $headers = array())
     {
         return new StreamedResponse(
             function () use ($writer) {

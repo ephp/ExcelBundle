@@ -39,7 +39,7 @@ I encourage you to use the built-in function for csv: http://php.net/manual-look
 ``` php
     $bundles = array(
         // ...
-        new Liuggio\ExcelBundle\LiuggioExcelBundle(),
+        new Ephp\OfficeBundle\LiuggioExcelBundle(),
     );
 ```
 
