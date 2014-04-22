@@ -13,7 +13,7 @@ class FactoryWord
 {
     private $phpWordIO;
 
-    public function __construct($phpWordIO = '\PHPWord_IOFactory')
+    public function __construct($phpWordIO = '\PhpOffice\PhpWord\IOFactory')
     {
         $this->phpWordIO = $phpWordIO;
     }
@@ -27,7 +27,7 @@ class FactoryWord
     public function createPHPWordObject($filename =  null)
     {
         if (null == $filename) {
-            $phpWordObject = new \PHPWord();
+            $phpWordObject = new \PhpOffice\PhpWord\PhpWord();
 
             return $phpWordObject;
         }
@@ -45,7 +45,7 @@ class FactoryWord
      *
      * @return \PHPWord_Writer_IWriter
      */
-    public function createWriter(\PHPWord $phpWordObject, $type = 'Word2007')
+    public function createWriter(\PhpOffice\PhpWord\PhpWord $phpWordObject, $type = 'Word2007')
     {
         return call_user_func(array($this->phpWordIO, 'createWriter'), $phpWordObject, $type);
     }
@@ -59,7 +59,7 @@ class FactoryWord
      *
      * @return StreamedResponse
      */
-    public function createStreamedResponse(\PHPWord_Writer_IWriter $writer, $status = 200, $headers = array())
+    public function createStreamedResponse(\PhpOffice\PhpWord\Writer\IWriter $writer, $status = 200, $headers = array())
     {
         return new StreamedResponse(
             function () use ($writer) {
